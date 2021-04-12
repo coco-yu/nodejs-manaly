@@ -68,3 +68,50 @@
 // }).catch(err => {
 //     console.log('fail', err);
 // })
+
+// Promise.resolve(1)
+// .then(x => x+1)
+// .then(x => {
+//     throw new Error('my error')
+// })
+// .catch(() => 1)
+// .then(x => x+1)
+// .then(x => console.log(x))
+// .catch(err => console.log(err));
+
+// Promise.resolve().then(() => {
+//     console.log('Promise1');
+//     setTimeout(() => {
+//         console.log('settimeout2');
+//     }, 0);
+// });
+
+// setTimeout(() => {  
+//     console.log('setTimeout1');
+//     Promise.resolve().then(() => {
+//         console.log('Promise2');
+//     });
+// }, 0);
+
+
+console.log(1);
+async function async() {
+    console.log(2);
+    await console.log(3);
+    console.log(4);
+}
+
+setTimeout(() => {
+    console.log(5);
+}, 0);
+
+const promise = new Promise((resolve, reject) => {
+    console.log(6);
+    resolve(7);
+});
+promise.then(res => {
+    console.log(res);
+});
+
+async();
+console.log(8);
